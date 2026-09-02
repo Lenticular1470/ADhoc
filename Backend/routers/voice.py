@@ -290,7 +290,7 @@ async def generate_and_send_greeting(websocket: WebSocket, call_id: str, stream_
             print("Generating greeting with Groq...")
             prompt = system_prompt + f"\n\nStudent's name is {student_name}. Write a short, welcoming phone greeting (1-2 sentences max) to start the call. Do not output anything other than the greeting text."
             response = config.groq_client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "system", "content": prompt}],
                 max_tokens=60,
                 temperature=0.7
@@ -354,7 +354,7 @@ Provide your analysis in a valid JSON format with the following keys:
 
 Output ONLY the JSON object. Do not include any markdown styling, code blocks, or explanatory text."""
             response = config.groq_client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
+                model="openai/gpt-oss-20b",
                 messages=[{"role": "user", "content": analysis_prompt}],
                 max_tokens=500,
                 temperature=0.3

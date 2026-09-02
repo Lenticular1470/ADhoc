@@ -131,3 +131,826 @@ Traceback (most recent call last):
 AttributeError: 'NoneType' object has no attribute 'append'
 
 
+=== 2026-07-25T05:55:37.306087 ===
+Request: POST /api/auth/login
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\auth.py", line 63, in login
+    result = supabase.table("users").select("*").eq("email", email).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 837, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+
+=== 2026-07-25T05:56:16.291311 ===
+Request: POST /api/auth/login
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\auth.py", line 63, in login
+    result = supabase.table("users").select("*").eq("email", email).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 837, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+
+=== 2026-07-25T06:02:25.765611 ===
+Request: GET /api/voice/fastrtc-status
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 829, in fastrtc_status_endpoint
+    stream = get_fastrtc_stream()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 50, in get_fastrtc_stream
+    _fastrtc_stream = create_fastrtc_stream(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\fastrtc_handler.py", line 331, in create_fastrtc_stream
+    handler=ReplyOnPause(
+            ^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\reply_on_pause.py", line 154, in __init__
+    self.model = model or get_silero_model()
+                          ^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\pause_detection\silero.py", line 30, in get_silero_model
+    raise RuntimeError("Install fastrtc[vad] to use ReplyOnPause")
+RuntimeError: Install fastrtc[vad] to use ReplyOnPause
+
+
+=== 2026-07-25T06:02:46.589958 ===
+Request: GET /api/voice/fastrtc-status
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 829, in fastrtc_status_endpoint
+    stream = get_fastrtc_stream()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 50, in get_fastrtc_stream
+    _fastrtc_stream = create_fastrtc_stream(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\fastrtc_handler.py", line 331, in create_fastrtc_stream
+    handler=ReplyOnPause(
+            ^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\reply_on_pause.py", line 154, in __init__
+    self.model = model or get_silero_model()
+                          ^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\pause_detection\silero.py", line 30, in get_silero_model
+    raise RuntimeError("Install fastrtc[vad] to use ReplyOnPause")
+RuntimeError: Install fastrtc[vad] to use ReplyOnPause
+
+
+=== 2026-07-25T06:13:17.605354 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+
+=== 2026-07-25T06:13:18.366844 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+
+=== 2026-07-25T06:14:34.728361 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+
+=== 2026-07-25T06:14:38.300941 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+
+=== 2026-09-02T13:12:04.006070 ===
+Request: POST /api/auth/login
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\auth.py", line 63, in login
+    result = supabase.table("users").select("*").eq("email", email).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 837, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\srich\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+
+=== 2026-09-02T13:31:42.669485 ===
+Request: POST /api/chat
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 670, in text_chat
+    ai_response = await guidance_engine.process_text(user_message, session_id)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\guidance_engine.py", line 51, in process_text
+    response = config.groq_client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\groq\resources\chat\completions.py", line 298, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\groq\_base_client.py", line 1263, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\groq\_base_client.py", line 955, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\groq\_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+groq.NotFoundError: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
+
+
+=== 2026-09-02T14:40:59.010850 ===
+Request: GET /api/voice/fastrtc-status
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 829, in fastrtc_status_endpoint
+    stream = get_fastrtc_stream()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 50, in get_fastrtc_stream
+    _fastrtc_stream = create_fastrtc_stream(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\fastrtc_handler.py", line 331, in create_fastrtc_stream
+    handler=ReplyOnPause(
+            ^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\reply_on_pause.py", line 154, in __init__
+    self.model = model or get_silero_model()
+                          ^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\pause_detection\silero.py", line 30, in get_silero_model
+    raise RuntimeError("Install fastrtc[vad] to use ReplyOnPause")
+RuntimeError: Install fastrtc[vad] to use ReplyOnPause
+
+
+=== 2026-09-02T14:41:24.002720 ===
+Request: GET /api/voice/fastrtc-status
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 829, in fastrtc_status_endpoint
+    stream = get_fastrtc_stream()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\routers\voice.py", line 50, in get_fastrtc_stream
+    _fastrtc_stream = create_fastrtc_stream(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\fastrtc_handler.py", line 331, in create_fastrtc_stream
+    handler=ReplyOnPause(
+            ^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\reply_on_pause.py", line 154, in __init__
+    self.model = model or get_silero_model()
+                          ^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastrtc\pause_detection\silero.py", line 30, in get_silero_model
+    raise RuntimeError("Install fastrtc[vad] to use ReplyOnPause")
+RuntimeError: Install fastrtc[vad] to use ReplyOnPause
+
+
+=== 2026-09-02T15:31:03.603922 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+
+=== 2026-09-02T15:31:05.551628 ===
+Request: GET /api/users
+Traceback (most recent call last):
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\Backend\main.py", line 227, in get_users
+    result = query.execute()
+             ^^^^^^^^^^^^^^^
+  File "D:\Testcodes\MINI_PROJ\AD1\venv\Lib\site-packages\postgrest\_sync\request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42703', 'details': None, 'hint': None, 'message': 'column users.department does not exist'}
+
+

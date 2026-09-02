@@ -256,7 +256,7 @@ Return this JSON structure exactly:
 }}"""
 
         resp = config.groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1200, temperature=0.3
         )
@@ -358,7 +358,7 @@ Return ONLY valid JSON in this exact structure:
 }}"""
             try:
                 resp = config.groq_client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="openai/gpt-oss-20b",
                     messages=[{"role": "user", "content": prompt}],
                     max_tokens=600, temperature=0.3
                 )

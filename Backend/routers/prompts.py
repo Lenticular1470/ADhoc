@@ -115,7 +115,7 @@ async def test_prompt(prompt_id: str, variables: Dict[str, str]):
     ]
 
     response = config.groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-20b",
         messages=messages_for_groq,
         max_tokens=500
     )

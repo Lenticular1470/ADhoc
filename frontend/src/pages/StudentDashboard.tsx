@@ -247,7 +247,7 @@ await transport.connect(sessionIdRef.current)
               }`}>
                 <p className="text-[10px] font-mono font-bold tracking-wider text-purple-400 mb-1.5">{msg.role === 'agent' ? 'AI ASSISTANT' : 'YOU'}</p>
                 <div
-  className="text-sm leading-relaxed
+  className="text-sm leading-relaxed overflow-x-auto
     [&_ul]:list-disc
     [&_ul]:ml-5
     [&_ol]:list-decimal
@@ -255,7 +255,22 @@ await transport.connect(sessionIdRef.current)
     [&_li]:mb-1
     [&_p]:mb-2
     [&_strong]:font-semibold
-    [&_strong]:text-white"
+    [&_strong]:text-white
+    [&_table]:w-full
+    [&_table]:border-collapse
+    [&_table]:my-3
+    [&_th]:border
+    [&_th]:border-white/20
+    [&_th]:px-3
+    [&_th]:py-2
+    [&_th]:text-left
+    [&_th]:font-semibold
+    [&_th]:text-white
+    [&_td]:border
+    [&_td]:border-white/20
+    [&_td]:px-3
+    [&_td]:py-2
+    [&_td]:align-top"
 >
   <ReactMarkdown remarkPlugins={[remarkGfm]}>
     {msg.text}

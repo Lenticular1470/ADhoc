@@ -46,7 +46,7 @@ async def end_session(session_id: str, current_user: dict = Depends(get_current_
         if config.groq_client:
             try:
                 summary = config.groq_client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="openai/gpt-oss-20b",
                     messages=[{"role": "user", "content": summary_prompt}],
                     max_tokens=300
                 ).choices[0].message.content or ""
